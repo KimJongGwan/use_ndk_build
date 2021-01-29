@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.use_ndk_build">
+
+    <!--앱에서 안드로이드 디바이스의 카메라에 접근하기 위해 필요한 퍼미션-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front.autofocus"  android:required="false"/>
+
+    <!--안드로이드 앱을 개발할때 AndroidManifest.xml 에서 해당 화면 크기를 지정할 수 있다.
+supports-screens 태그에 다음 속성을 지정한다.
+- android:largeScreens="true"  : 대형스크린(대각선 4.8 인치 이상)을 지원
+- android:normalScreens="true" : 일반스크린(대각선 4.0 인치 이상)을 지원
+- android:smallScreens="true"  : 작은화면(대각선 2.6 ~ 3.0 인치 이상)을 지원
+- android:anyDensity ="true"   : 여러 해상도를 지원
+-->
+    <supports-screens android:resizeable="true"
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:anyDensity="true"
+        />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Use_ndk_build">
+        <!--screenOrientation 속성을 landscape로 해주어야 OpenCV JAVA API를 사용하여 전체화면에 카메라 영상 보여주는것이 가능-->
+        <activity android:name=".MainActivity" android:screenOrientation="landscape" android:configChanges="keyboardHidden|orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
