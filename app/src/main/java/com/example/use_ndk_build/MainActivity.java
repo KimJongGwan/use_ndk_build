@@ -35,6 +35,7 @@ import static android.Manifest.permission.CAMERA;
 //API for sending log output.
 //Provides a dedicated drawing surface embedded inside of a view hierarchy.
 //The interface that apps use to talk to the window manager.
+//추가한 주석ㅘㅏㅚㅗㅓㅏㅣㅗㅓㅣ
 
 
 public class MainActivity extends AppCompatActivity
